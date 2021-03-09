@@ -14,12 +14,15 @@ app.use(cors())
 mongoose.Promise = global.Promise;
 mongoose.set('useCreateIndex', true);
 
-const mongo = {
-  'PASS' : 'hbknaPwfsXPoeryZ',
-  'DB' : 'traveldb',
-  'USERNAME' : 'alpha2244'
-}
-const url = `mongodb+srv://${mongo.USERNAME}:${mongo.PASS}@cluster0.trsdg.mongodb.net/${mongo.DB}?retryWrites=true&w=majority`
+// const mongo = {
+//   'PASS' : 'hbknaPwfsXPoeryZ',
+//   'DB' : 'traveldb',
+//   'USERNAME' : 'alpha2244'
+// }
+// const url = `mongodb+srv://${mongo.USERNAME}:${mongo.PASS}@cluster0.trsdg.mongodb.net/${mongo.DB}?retryWrites=true&w=majority`
+
+
+const url = process.env.MONGODB_URI || 'mongodb://localhost/traveldb'
 
 mongoose.connect(
     url, { useNewUrlParser: true,  useUnifiedTopology: true }
