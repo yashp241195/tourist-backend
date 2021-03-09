@@ -18,13 +18,9 @@ const url = `mongodb+srv://${mongo.USERNAME}:${mongo.PASS}@cluster0.trsdg.mongod
 
 mongoose.connect(
     url, { useNewUrlParser: true,  useUnifiedTopology: true }
-)
+).then(connect => console.log('connected to mongodb..'))
+.catch(e => console.log('could not connect to mongodb', e))
 
-//Get the default connection
-var db = mongoose.connection;
-
-//Bind connection to error event (to get notification of connection errors)
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 const app = express()
 
