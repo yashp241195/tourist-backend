@@ -22,7 +22,8 @@ mongoose.set('useCreateIndex', true);
 // const url = `mongodb+srv://${mongo.USERNAME}:${mongo.PASS}@cluster0.trsdg.mongodb.net/${mongo.DB}?retryWrites=true&w=majority`
 
 
-const url = process.env.MONGODB_URI || 'mongodb://localhost/traveldb'
+// const url = process.env.MONGODB_URI || 'mongodb://localhost/traveldb'
+const url = 'mongodb://localhost/traveldb'
 
 mongoose.connect(
     url, { useNewUrlParser: true,  useUnifiedTopology: true }
