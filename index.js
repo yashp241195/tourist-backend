@@ -14,23 +14,14 @@ app.use(cors())
 mongoose.Promise = global.Promise;
 mongoose.set('useCreateIndex', true);
 
-// const mongo = {
-//   'PASS' : 'hbknaPwfsXPoeryZ',
-//   'DB' : 'traveldb',
-//   'USERNAME' : 'alpha2244'
-// }
-// const url = `mongodb+srv://${mongo.USERNAME}:${mongo.PASS}@cluster0.trsdg.mongodb.net/${mongo.DB}?retryWrites=true&w=majority`
+const url = process.env.MONGODB_URI || 'mongodb://localhost/traveldb'
 
-
-// const url = process.env.MONGODB_URI || 'mongodb://localhost/traveldb'
-const url = 'mongodb://localhost/traveldb'
+console.console.log('URL : ',url);
 
 mongoose.connect(
     url, { useNewUrlParser: true,  useUnifiedTopology: true }
 ).then(connect => console.log('connected to mongodb..'))
 .catch(e => console.log('could not connect to mongodb', e))
-
-
 
 
 // parse application/x-www-form-urlencoded
