@@ -6,6 +6,11 @@ const swaggerUi = require("swagger-ui-express");
 const mongoose = require('mongoose');
 const cors = require('cors')
 
+const app = express()
+
+app.use(morgan('dev'));
+app.use(cors())
+
 mongoose.Promise = global.Promise;
 mongoose.set('useCreateIndex', true);
 
@@ -22,10 +27,7 @@ mongoose.connect(
 .catch(e => console.log('could not connect to mongodb', e))
 
 
-const app = express()
 
-app.use(morgan('dev'));
-app.use(cors())
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.json());
