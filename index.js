@@ -14,12 +14,17 @@ const mongo = {
   'DB' : 'traveldb',
   'USERNAME' : 'alpha2244'
 }
-
 const url = `mongodb+srv://${mongo.USERNAME}:${mongo.PASS}@cluster0.trsdg.mongodb.net/${mongo.DB}?retryWrites=true&w=majority`
 
 mongoose.connect(
     url, { useNewUrlParser: true,  useUnifiedTopology: true }
 )
+
+//Get the default connection
+var db = mongoose.connection;
+
+//Bind connection to error event (to get notification of connection errors)
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 const app = express()
 
