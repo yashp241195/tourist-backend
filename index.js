@@ -16,7 +16,7 @@ mongoose.set('useCreateIndex', true);
 
 const url = process.env.MONGODB_URI || 'mongodb://localhost/traveldb'
 
-console.console.log('URL : ',url);
+console.log('URL : ',url);
 
 mongoose.connect(
     url, { useNewUrlParser: true,  useUnifiedTopology: true }
