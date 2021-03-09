@@ -9,9 +9,16 @@ const cors = require('cors')
 mongoose.Promise = global.Promise;
 mongoose.set('useCreateIndex', true);
 
+const mongo = {
+  'PASS' : 'hbknaPwfsXPoeryZ',
+  'DB' : 'traveldb',
+  'USERNAME' : 'alpha2244'
+}
+
+const url = `mongodb+srv://${mongo.USERNAME}:${mongo.PASS}@cluster0.trsdg.mongodb.net/${mongo.DB}?retryWrites=true&w=majority`
+
 mongoose.connect(
-    'mongodb://localhost/traveldb',
-    { useNewUrlParser: true,  useUnifiedTopology: true }
+    url, { useNewUrlParser: true,  useUnifiedTopology: true }
 )
 
 const app = express()
